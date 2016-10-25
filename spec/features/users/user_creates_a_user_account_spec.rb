@@ -6,6 +6,6 @@ describe "User creates new account" do
     fill_in "user[name]", with: "Name"
     click_on "Create New User"
 
-    expect(page).to have_content"Name"
+    expect(page).to have_content "Name"
   end
 end
