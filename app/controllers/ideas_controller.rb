@@ -10,6 +10,11 @@ class IdeasController <ApplicationController
     end
   end
 
+  def index
+    @user = User.find(params[:user_id])
+    @ideas = @user.ideas.all
+  end
+
   def show
     @user = User.find(params[:user_id])
     @idea = Idea.find(params[:id])

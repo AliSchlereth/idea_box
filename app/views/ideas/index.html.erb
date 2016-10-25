@@ -1,0 +1,5 @@
+Ideas for <%= @user.name %>
+
+<% @user.ideas.each do |idea| %>
+  <%= link_to idea.name, user_idea_path(@user, idea) %>
+<% end  %>
