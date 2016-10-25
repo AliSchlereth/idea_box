@@ -20,6 +20,29 @@ class IdeasController <ApplicationController
     @idea = Idea.find(params[:id])
   end
 
+  def edit
+    @user = User.find(params[:user_id])
+    @idea = Idea.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:user_id])
+    @idea = Idea.find(params[:id])
+    if @idea.update_attributes(idea_params)
+      redirect_to user_idea_path(@user, @idea)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @idea = Idea.find(params[:id])
+    @idea.destroy
+    
+    redirect_to user_ideas_path(@user)
+  end
+
   private
 
   def idea_params

@@ -14,9 +14,11 @@ describe "User visits the idea index" do
 
   scenario "they can click each idea to redirect to idea show" do
     user = create(:user)
-    idea1 = user.ideas.create(name: "Name1")
+    idea = user.ideas.create(name: "Name")
 
     visit user_ideas_path(user)
-    
+    click_on "Name"
+
+    expect(current_path).to eq(user_idea_path(user, idea))
   end
 end

@@ -1,5 +1,8 @@
 Ideas for <%= @user.name %>
 
 <% @user.ideas.each do |idea| %>
-  <%= link_to idea.name, user_idea_path(@user, idea) %>
+  <ul class=company_<%= idea.id %>
+    <li><%= link_to idea.name, user_idea_path(@user, idea) %></li>
+    <li><%= link_to "Delete", user_idea_path(@user, idea), method: "delete" %></li>
+  </ul>
 <% end  %>
