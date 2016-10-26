@@ -15,5 +15,12 @@ describe User do
     end
   end
 
+  describe "Relationships" do
+    it "has many ideas" do
+      user = User.new(name: "Name")
+      expect(user).to respond_to(:ideas)
+    end
+  end
+
 
 end

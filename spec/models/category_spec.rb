@@ -22,4 +22,11 @@ describe Category do
       expect(category2).to_not be_valid
     end
   end
+
+  describe "Relationships" do
+    it "has many ideas" do
+      category = Category.new(name: "Name")
+      expect(category).to respond_to(:ideas)
+    end
+  end
 end

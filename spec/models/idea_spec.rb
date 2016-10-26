@@ -29,4 +29,40 @@ describe Idea do
     end
   end
 
+  describe "Relationships" do
+    it "belongs to user " do
+      user = create(:user)
+      cat = create(:category)
+      idea = user.ideas.new(name: "Name", category: cat)
+
+      expect(idea).to respond_to(:user)
+    end
+
+    it "belongs to category" do
+      user = create(:user)
+      cat = create(:category)
+      idea = user.ideas.new(name: "Name", category: cat)
+
+      expect(idea).to respond_to(:category)
+    end
+
+    it "has many ideas_images" do
+      user = create(:user)
+      cat = create(:category)
+      idea = user.ideas.new(name: "Name", category: cat)
+
+      expect(idea).to respond_to(:ideas_images)
+    end
+
+    it "has many images" do
+      user = create(:user)
+      cat = create(:category)
+      idea = user.ideas.new(name: "Name", category: cat)
+
+      expect(idea).to respond_to(:images)
+    end
+
+
+  end
+
 end
