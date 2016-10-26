@@ -3,4 +3,5 @@ class Idea < ActiveRecord::Base
   validates :name, uniqueness: true
 
   belongs_to :user
+  belongs_to :category
 end

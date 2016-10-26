@@ -11,6 +11,8 @@
   <%= f.label :resources %>
   <%= f.text_area :resources %>
 
+  <%= f.collection_select :category_id, @categories, :id, :title, include_black: true %>
+
   <%= f.submit "Create New Idea" %>
   <% end %>
 
