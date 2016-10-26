@@ -3,6 +3,7 @@
 <% @categories.each do |cat| %>
 <ul class=category_<%= cat.id %>>
   <li><%= link_to cat.name, category_path(cat) %></li>
+  <li><%= link_to "Edit", edit_category_path(cat) %></li>
   <li> <%= link_to "Delete", category_path(cat), method: "delete" %></li>
 </ul>
   <% end %>
