@@ -12,7 +12,13 @@ class SessionsController < ApplicationController
       redirect_to user_path(@user)
     else
       render :new
-    end 
+    end
+  end
+
+  def destroy
+    flash[:success] = "Successfully logged out!"
+    session.delete(:user_id)
+    redirect_to login_path
   end
 
 end
