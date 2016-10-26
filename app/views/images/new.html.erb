@@ -1,0 +1,8 @@
+<h1>Link a new Image!</h1>
+
+<%= form_for @image do |f| %>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  
+  <%= f.submit "Link Image"%>
+  <% end %>

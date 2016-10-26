@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   end
 
   resources :categories
+  resources :images, only: [:new, :create, :show]
 end

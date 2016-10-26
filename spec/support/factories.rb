@@ -18,5 +18,11 @@ FactoryGirl.define do
     name
   end
 
+  factory :image do
+    sequence :url do |n|
+      "http://#{n}.com"
+    end 
+  end
+
 
 end
