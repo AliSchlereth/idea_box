@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @idea = Idea.new
+    @categories = Category.all
   end
 
   private

@@ -23,6 +23,7 @@ class IdeasController <ApplicationController
   def edit
     @user = User.find(params[:user_id])
     @idea = Idea.find(params[:id])
+    @categories = Category.all
   end
 
   def update
@@ -39,14 +40,14 @@ class IdeasController <ApplicationController
     @user = User.find(params[:user_id])
     @idea = Idea.find(params[:id])
     @idea.destroy
-    
+
     redirect_to user_ideas_path(@user)
   end
 
   private
 
   def idea_params
-    params.require(:idea).permit(:name, :description, :resources)
+    params.require(:idea).permit(:name, :description, :resources, :category_id)
   end
 
 

@@ -4,7 +4,8 @@ describe "User deletes an idea" do
   describe"they delete idea from show page" do
     scenario "they click delete" do
       user = create(:user)
-      idea = user.ideas.create(name: "Name3", resources: "http://link.com")
+      cat = create(:category)
+      idea = user.ideas.create(name: "Name3", resources: "http://link.com", category: cat)
 
       visit user_idea_path(user, idea)
       click_on "Delete"
@@ -14,7 +15,8 @@ describe "User deletes an idea" do
 
     scenario "they are redirected to idea index" do
       user = create(:user)
-      idea = user.ideas.create(name: "Name3", resources: "http://link.com")
+      cat = create(:category)
+      idea = user.ideas.create(name: "Name3", resources: "http://link.com", category: cat)
 
       visit user_idea_path(user, idea)
       click_on "Delete"
@@ -26,7 +28,8 @@ describe "User deletes an idea" do
   describe "they delete an entry from idea index" do
     scenario "they click delete" do
       user = create(:user)
-      idea = user.ideas.create(name: "Name3", resources: "http://link.com")
+      cat = create(:category)
+      idea = user.ideas.create(name: "Name3", resources: "http://link.com", category: cat)
 
       visit user_ideas_path(user)
       click_on "Delete"
@@ -35,7 +38,8 @@ describe "User deletes an idea" do
     end
     scenario "they are redirected to the index" do
       user = create(:user)
-      idea = user.ideas.create(name: "Name3", resources: "http://link.com")
+      cat = create(:category)
+      idea = user.ideas.create(name: "Name3", resources: "http://link.com", category: cat)
 
       visit user_ideas_path(user)
       click_on "Delete"

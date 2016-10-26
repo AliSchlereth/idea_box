@@ -3,7 +3,8 @@ require 'rails_helper'
 describe "User edits a current idea" do
   scenario "they visit the edit from the individual show page" do
     user = create(:user)
-    idea = user.ideas.create(name: "Name")
+    cat = create(:category)
+    idea = user.ideas.create(name: "Name", category: cat)
 
     visit user_idea_path(user, idea)
     click_on "Edit"
@@ -13,7 +14,8 @@ describe "User edits a current idea" do
 
   scenario "they update the name" do
     user = create(:user)
-    idea = user.ideas.create(name: "Name3")
+    cat = create(:category)
+    idea = user.ideas.create(name: "Name3", category: cat)
 
     visit edit_user_idea_path(user, idea)
     fill_in "idea[name]", with: "Idea Name"
@@ -25,7 +27,8 @@ describe "User edits a current idea" do
 
   scenario "they update the description" do
     user = create(:user)
-    idea = user.ideas.create(name: "Name3", description: "DescribeMe")
+    cat = create(:category)
+    idea = user.ideas.create(name: "Name3", description: "DescribeMe", category: cat)
 
     visit edit_user_idea_path(user, idea)
     fill_in "idea[description]", with: "This is a thing"
@@ -37,7 +40,8 @@ describe "User edits a current idea" do
 
   scenario "they update the resources list" do
     user = create(:user)
-    idea = user.ideas.create(name: "Name3", resources: "http://link.com")
+    cat = create(:category)
+    idea = user.ideas.create(name: "Name3", resources: "http://link.com", category: cat)
 
     visit edit_user_idea_path(user, idea)
     fill_in "idea[resources]", with: "http://newthing.com"
@@ -49,7 +53,8 @@ describe "User edits a current idea" do
 
   scenario "they are redirected to updated show page upon completion" do
     user = create(:user)
-    idea = user.ideas.create(name: "Name3", resources: "http://link.com")
+    cat = create(:category)
+    idea = user.ideas.create(name: "Name3", resources: "http://link.com", category: cat)
 
     visit edit_user_idea_path(user, idea)
     fill_in "idea[resources]", with: "http://newthing.com"

@@ -6,6 +6,7 @@ FactoryGirl.define do
   factory :idea do
     name
     user {create(:user)}
+    category {create(:category)}
   end
 
 

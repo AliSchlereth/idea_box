@@ -1,8 +1,11 @@
 <h1> <%= @idea.name %></h1>
+<% binding.pry if @idea.name == "Create Idea Name" %>
 
 Description:  <%= @idea.description %>
 
 Resources:    <%= @idea.resources %>
+
+Category:     <%= @idea.category.name %>
 
 <%= link_to "Edit", edit_user_idea_path(@user, @idea) %>
 <%= link_to "Delete", user_idea_path(@user, @idea), method: "delete" %>
