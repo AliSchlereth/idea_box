@@ -14,7 +14,11 @@
         <%= value %>
       </div>
       <% end  %>
-      <%= link_to "Log Out", logout_path, method: "delete" %>
+      <% if logged_in? %>
+          <p><%= link_to "Log Out", logout_path, method: "delete" %></p>
+      <% else %>
+          <p><% link_to "Login", login_path %></p>
+      <% end  %>
     <%= yield %>
   </body>
 </html>
