@@ -13,5 +13,9 @@ FactoryGirl.define do
     "Name #{n}"
   end
 
+  factory :category do
+    name
+  end
+
 
 end
