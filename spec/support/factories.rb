@@ -1,6 +1,12 @@
 FactoryGirl.define do
   factory :user do
     name
+    sequence :email do |n|
+      "email #{n}"
+    end
+    sequence :password do |n|
+      "password #{n}"
+    end
   end
 
   factory :idea do
@@ -21,7 +27,7 @@ FactoryGirl.define do
   factory :image do
     sequence :url do |n|
       "http://#{n}.com"
-    end 
+    end
   end
 
 
