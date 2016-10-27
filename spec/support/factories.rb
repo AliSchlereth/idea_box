@@ -4,9 +4,10 @@ FactoryGirl.define do
     sequence :email do |n|
       "email #{n}"
     end
-    sequence :password do |n|
-      "password #{n}"
+    sequence :password do
+      "password"
     end
+
   end
 
   factory :idea do
