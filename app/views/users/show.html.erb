@@ -1,6 +1,11 @@
 <h1>Welcome <%= @user.name %></h1>
   <%= @user.email %>
 
+  <h6><%= @user.name %>'s Ideas</h6>
+  <% @ideas.each do |idea| %>
+    <%link_to idea.name, user_idea_path(@user, idea) %>
+  <% end %>
+
 <h3>Create a New Idea</h3>
 <%= form_for [@user, @idea] do |f| %>
   <%= f.label :name %>

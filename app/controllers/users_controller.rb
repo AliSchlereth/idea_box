@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+before_action :logged_in?, except: [:new, :create]
 
   def new
     @user = User.new
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Successfully create new user!"
+      flash[:success] = "Successfully created new account!"
       redirect_to user_path(@user)
     else
       render :new
@@ -19,12 +20,9 @@ class UsersController < ApplicationController
     # @user = current_user
     @user = User.find(params[:id])
     @idea = Idea.new
+    @ideas = Idea.all
     @categories = Category.all
   end
-
-  # def index
-  #   @users = User.all
-  # end
 
   def edit
     # @user = current_user
