@@ -1,4 +1,8 @@
-class UsersController < ApplicationController
+class Admin::UsersController < Admin::BaseController
+
+  def index
+    @users = User.all
+  end
 
   def new
     @user = User.new
@@ -21,10 +25,6 @@ class UsersController < ApplicationController
     @idea = Idea.new
     @categories = Category.all
   end
-
-  # def index
-  #   @users = User.all
-  # end
 
   def edit
     # @user = current_user

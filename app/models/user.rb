@@ -6,7 +6,11 @@ class User < ActiveRecord::Base
 
   has_many :ideas
 
+  enum role: [:default, :admin]
+
   def validate_password?
     password.present? || password_confirmation.present?
   end
+
+
 end

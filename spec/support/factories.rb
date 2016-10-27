@@ -7,7 +7,9 @@ FactoryGirl.define do
     sequence :password do
       "password"
     end
-
+    factory :admin do
+      role 1
+    end
   end
 
   factory :idea do
