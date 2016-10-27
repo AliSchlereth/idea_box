@@ -1,4 +1,6 @@
 <h1>Welcome <%= @user.name %></h1>
+<%= binding.pry if @user.email == "Edited Email" %>
+  <%= @user.email %>
 
 <h3>Create a New Idea</h3>
 <%= form_for [@user, @idea] do |f| %>

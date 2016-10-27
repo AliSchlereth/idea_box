@@ -1,7 +1,6 @@
-<h1>Create a New User</h1>
+<h1>Edit <%= @user.name %></h1>
 
 <%#= render partial: 'form' %>
-
 <%= form_for @user do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
