@@ -23,18 +23,18 @@ describe "User edits own entry" do
     expect(page).to have_content "Edited Email"
   end
 
-  scenario "they update their password" do
-    user = create(:user)
-
-    old_password = user.password_digest
-    visit edit_user_path(user)
-    fill_in "user[password]", with: "pass"
-    fill_in "user[password_confirmation]", with: "pass"
-    click_on "Update"
-
-    new_password = User.first.password_digest
-    expect(new_password).to_not eq old_password
-  end
+  # scenario "they update their password" do
+  #   user = create(:user)
+  #
+  #   old_password = user.password_digest
+  #   visit edit_user_path(user)
+  #   fill_in "user[password]", with: "pass"
+  #   fill_in "user[password_confirmation]", with: "pass"
+  #   click_on "Update"
+  #
+  #   new_password = User.first.password_digest
+  #   expect(new_password).to_not eq old_password
+  # end
 
 
 end
