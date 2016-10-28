@@ -17,6 +17,13 @@
   <%= f.label :resources %>
   <%= f.text_area :resources %>
   <%= f.collection_select :category_id, @categories, :id, :name, include_blank: true %>
-
+  <% if @images %>
+    <% @images.each do |image| %>
+      <div>
+        <%= check_box_tag(:image_id, image.id, false, name: "idea[image_ids][]", id: "image-#{image.id}", include_blank: true) %>
+        <%= image.url %>
+      </div>
+    <% end %>
+  <% end %>
   <%= f.submit "Create New Idea" %>
   <% end %>

@@ -4,6 +4,7 @@ before_action :logged_in?, except: [:new, :create]
   def new
     @user = User.new
     @categories = Category.all
+    @images = Image.all
   end
 
   def create
