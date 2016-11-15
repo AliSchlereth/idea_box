@@ -4,7 +4,6 @@ before_action :logged_in?, except: [:new, :create]
   def new
     @user = User.new
     @categories = Category.all
-    @images = Image.all
   end
 
   def create
@@ -23,6 +22,7 @@ before_action :logged_in?, except: [:new, :create]
     @idea = Idea.new
     @ideas = Idea.all
     @categories = Category.all
+    @images = Image.all
   end
 
   def edit
