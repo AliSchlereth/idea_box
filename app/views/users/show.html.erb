@@ -18,12 +18,16 @@
   <%= f.text_area :resources %>
   <%= f.collection_select :category_id, @categories, :id, :name, include_blank: true %>
   <% if @images %>
-    <% @images.each do |image| %>
-      <div>
+    <div class="row">
+      <% @images.each do |image| %>
+      <div class="col-md-3">
         <%= check_box_tag(:image_id, image.id, false, name: "idea[image_ids][]", id: "image-#{image.id}", include_blank: true) %>
-        <%= image.url %>
+        <%= image_tag(image.url, class: "img-thumbnail item-grid") %>
       </div>
-    <% end %>
+      <% end %>
+    </div>
   <% end %>
   <%= f.submit "Create New Idea" %>
   <% end %>
+
+  <%#= link_to image_tag(item.image, class: "img-thumbnail item-grid"), item_path(item) %>

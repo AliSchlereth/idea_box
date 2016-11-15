@@ -14,3 +14,9 @@
  *= require_self
  *= require bootstrap.min
  */
+
+ .item-grid {
+   width: 300px;
+   height: 200px;
+   border: none;
+ }
