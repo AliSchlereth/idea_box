@@ -4,7 +4,6 @@ class IdeasController <ApplicationController
     @user = User.find(params[:user_id])
     @idea = @user.ideas.new(idea_params)
     if @idea.save
-      binding.pry
       redirect_to user_idea_path(@user, @idea)
     else
       redirect_to user_path(@user)

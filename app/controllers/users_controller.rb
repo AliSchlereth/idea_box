@@ -17,8 +17,10 @@ before_action :logged_in?, except: [:new, :create]
   end
 
   def show
-    # @user = current_user
-    @user = User.find(params[:id])
+    if !current_user || params[:id] && params[:id].to_i != current_user.id
+      render file: '/public/404'
+    end
+    @user = current_user
     @idea = Idea.new
     @categories = Category.all
     @images = Image.all
