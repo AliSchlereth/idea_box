@@ -5,10 +5,9 @@
   <% @ideas.each do |idea| %>
     <%link_to idea.name, user_idea_path(@user, idea) %>
   <% end %>
-
+<div class="form-holder">
 <h3>Create a New Idea</h3>
-<div class="form">
-<%= form_for [@user, @idea] do |f| %>
+<%= form_for [@user, @idea], class: "form-group" do |f| %>
   <div class="form-inline">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -44,8 +43,8 @@
       </div>
     </div>
   <% end %>
-</div>
 
   <% end %>
+</div>
 
   <%#= link_to image_tag(item.image, class: "img-thumbnail item-grid"), item_path(item) %>

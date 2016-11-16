@@ -27,9 +27,25 @@
    border-radius: 5px;
  }
 
+ .form-holder {
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  padding: 35px;
+  background-color: lightgrey;
+  width: 95%;
+  border-radius: 50px;
+}
+
+
  .form-inline {
   margin-left: auto;
   margin-right: auto;
   float: none;
   width: 70%;
+}
+
+input, textarea {
+  border-radius: 5px;
 }
