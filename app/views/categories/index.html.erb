@@ -1,3 +1,4 @@
+<div class="info-details">
 <h1> All Categories </h1>
 
 <% @categories.each do |cat| %>
@@ -5,3 +6,5 @@
     <li><%= link_to cat.name, category_path(cat) %></li>
   </ul>
 <% end %>
+
+</div>

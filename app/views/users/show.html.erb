@@ -1,6 +1,6 @@
 <div class="info-details">
 <h1>Welcome <%= @user.name %></h1>
-<h4><%= @user.email %></h4>
+<h4><%= @user.email %> <%= link_to "Edit", edit_user_path(@user) %></h4>
 
   <h3><%= @user.name %>'s Ideas</h3>
   <div class="container-fluid">

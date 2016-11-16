@@ -51,10 +51,14 @@
   border-radius: 30px;
 }
 
-
 input, textarea {
   margin-right: 0.5em;
   display: block;
   border-radius: 5px;
   border: grey;
+}
+
+.image {
+  text-align: center;
+  padding: 1em;
 }
