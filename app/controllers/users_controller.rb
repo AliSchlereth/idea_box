@@ -20,7 +20,6 @@ before_action :logged_in?, except: [:new, :create]
     # @user = current_user
     @user = User.find(params[:id])
     @idea = Idea.new
-    @ideas = Idea.all
     @categories = Category.all
     @images = Image.all
   end

@@ -2,9 +2,10 @@
   <%= @user.email %>
 
   <h6><%= @user.name %>'s Ideas</h6>
-  <% @ideas.each do |idea| %>
-    <%link_to idea.name, user_idea_path(@user, idea) %>
+  <% @user.ideas.each do |idea| %>
+    <p><%= link_to idea.name, user_idea_path(@user, idea) %></p>
   <% end %>
+
 <div class="form-holder">
 <h3>Create a New Idea</h3>
 <%= form_for [@user, @idea], class: "form-group" do |f| %>
@@ -24,6 +25,7 @@
   </div>
 
   <div class="form-inline">
+    <%= f.label "Category" %>
     <%= f.collection_select :category_id, @categories, :id, :name, include_blank: true %>
   </div>
 
@@ -33,6 +35,7 @@
 
   <% if @images %>
     <div class="container-fluid">
+      <%= f.label "Select Images" %>
       <div class="row">
         <% @images.each do |image| %>
         <div class="col-md-3">
