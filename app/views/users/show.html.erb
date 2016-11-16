@@ -7,16 +7,31 @@
   <% end %>
 
 <h3>Create a New Idea</h3>
+<div class="form">
 <%= form_for [@user, @idea] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class="form-inline">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+  <div class="form-inline">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
 
-  <%= f.label :resources %>
-  <%= f.text_area :resources %>
-  <%= f.collection_select :category_id, @categories, :id, :name, include_blank: true %>
+  <div class="form-inline">
+    <%= f.label :resources %>
+    <%= f.text_area :resources %>
+  </div>
+
+  <div class="form-inline">
+    <%= f.collection_select :category_id, @categories, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="form-inline">
+    <%= f.submit "Create New Idea" %>
+  </div>
+
   <% if @images %>
     <div class="container-fluid">
       <div class="row">
@@ -29,7 +44,8 @@
       </div>
     </div>
   <% end %>
-  <%= f.submit "Create New Idea" %>
+</div>
+
   <% end %>
 
   <%#= link_to image_tag(item.image, class: "img-thumbnail item-grid"), item_path(item) %>
