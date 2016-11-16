@@ -8,29 +8,29 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <nav class="col-md-12 navbar navbar-default navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <%= link_to "Diversify Images", '/', class:"navbar-brand" %>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-          <% if logged_in? %>
-            <li><%= link_to "Ideas", user_ideas_path(current_user)%></li>
-            <li><%= link_to "Categories", categories_path%></li>
-            <li><%= link_to "Log Out", logout_path, method: "delete" %><li>
-          <% else %>
-            <p><%= link_to "Login", login_path %></p>
-          <% end %>
-        </ul>
+  <nav class="col-md-12 navbar navbar-default navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to "Diversify Images", '/', class:"navbar-brand" %>
       </div>
-    </nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+        <li><%= link_to "Ideas", user_ideas_path(current_user)%></li>
+        <li><%= link_to "Categories", categories_path%></li>
+        <li><%= link_to "Log Out", logout_path, method: "delete" %><li>
+          <% else %>
+          <p><%= link_to "Login", login_path %></p>
+          <% end %>
+      </ul>
+    </div>
+  </nav>
 
+  <body class="container-fluid">
     <% flash.each do |key, value| %>
       <div class=flash_<%= key %>>
         <%= value %>
       </div>
       <% end  %>
-    <%= yield %>
+        <%= yield %>
   </body>
 </html>
