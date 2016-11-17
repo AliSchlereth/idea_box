@@ -1,8 +1,12 @@
-<h1>Create a Category</h1>
+<div class="form-holder">
+  <h1>Create a Category</h1>
+  <h4><%= link_to "Back to All Categories", admin_categories_path %></h4>
 
-<%= form_for [:admin, @category] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= form_for [:admin, @category] do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-  <%= f.submit "Create Category" %>
+    <%= f.submit "Create Category" %>
   <% end %>
+
+</div>

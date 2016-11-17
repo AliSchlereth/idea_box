@@ -1,8 +1,17 @@
-Ideas for <%= @user.name %>
+<div class="info-details">
+  <h1>Ideas for <%= @user.name %></h1>
+  <h4><%= link_to "Create New Idea", user_path(@user) %></h4>
 
-<% @user.ideas.each do |idea| %>
-  <ul class=company_<%= idea.id %>
-    <li><%= link_to idea.name, user_idea_path(@user, idea) %></li>
-    <li><%= link_to "Delete", user_idea_path(@user, idea), method: "delete" %></li>
-  </ul>
-<% end  %>
+  <div class="container-fluid">
+    <div class="row">
+      <% @user.ideas.each do |idea| %>
+        <div class="col-md-2">
+          <ul class=company_<%= idea.id %>
+            <p><%= link_to idea.name, user_idea_path(@user, idea) %></p>
+            <%= link_to "Delete", user_idea_path(@user, idea), method: "delete", class: "btn btn-default btn-xs" %>
+          </ul>
+        </div>
+      <% end  %>
+    </div>
+  </div>
+</div>

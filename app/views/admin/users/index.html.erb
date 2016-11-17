@@ -1,7 +1,9 @@
-<h1> All Users</h1>
+<div  class="info-details">
+  <h1> All Users</h1>
 
-<div class="container-fluid">
-  <% @users.each do |user| %>
-    <p><%=link_to user.name, user_path(user) %></p>
-  <% end %>
+  <div class="container-fluid">
+    <% @users.each do |user| %>
+      <p><%=link_to user.name, user_path(user) %></p>
+    <% end %>
+  </div>
 </div>
