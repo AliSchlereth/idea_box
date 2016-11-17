@@ -5,6 +5,10 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
   end
 
+  def index
+    @images = Image.all
+  end
+
   private
   def image_params
     params.require(:image).permit(:url)
