@@ -1,17 +1,17 @@
 <div class="container-fulid">
-<div class="info-details">
+  <div class="info-details">
 
-  <h1> <%= @idea.name %></h1>
+    <h1> <%= @idea.name %></h1>
 
-  <p><%= link_to @idea.category.name, category_path(@idea.category), class: "btn btn-default btn-xs" %></p><hr />
-  <p>Description:</p>
-  <p><%= @idea.description %></p><hr />
-  <p>Resources:</p>
-  <p><%= @idea.resources %></p></br>
-  <p><%= link_to "Edit", edit_user_idea_path(@user, @idea), class: "btn btn-default btn-xs" %>
-  <%= link_to "Delete", user_idea_path(@user, @idea), method: "delete", class: "btn btn-default btn-xs" %></p>
+    <p><%= link_to @idea.category.name, category_path(@idea.category), class: "btn btn-default btn-xs" %></p><hr />
+    <p>Description:</p>
+    <p><%= @idea.description %></p><hr />
+    <p>Resources:</p>
+    <p><%= @idea.resources %></p></br>
+    <p><%= link_to "Edit", edit_user_idea_path(@user, @idea), class: "btn btn-default btn-xs" %>
+    <%= link_to "Delete", user_idea_path(@user, @idea), method: "delete", class: "btn btn-default btn-xs" %></p>
 
-</div>
+  </div>
 
 
 
@@ -23,7 +23,7 @@
     <div class="row">
       <% @idea.images.each do |image|  %>
         <div class="col-md-3">
-          <li><%=image_tag(image.url, class: "img-thumbnail item-grid")%></li>
+          <li><%=link_to image_tag(image.url, class: "img-thumbnail item-grid"), image_path(image)%></li>
         </div>
       <% end %>
     </div>

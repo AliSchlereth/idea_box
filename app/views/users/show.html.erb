@@ -48,7 +48,7 @@
         <% @images.each do |image| %>
         <div class="col-md-3">
           <%= check_box_tag(:image_id, image.id, false, name: "idea[image_ids][]", id: "image-#{image.id}", include_blank: true) %>
-          <%= image_tag(image.url, class: "img-thumbnail item-grid") %>
+          <%= link_to image_tag(image.url, class: "img-thumbnail item-grid"), image_path(image) %>
         </div>
         <% end %>
       </div>
