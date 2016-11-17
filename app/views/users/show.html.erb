@@ -1,22 +1,59 @@
+<div class="info-details">
 <h1>Welcome <%= @user.name %></h1>
-  <%= @user.email %>
+<h4><%= @user.email %> <%= link_to "Edit", edit_user_path(@user) %></h4>
 
-  <h6><%= @user.name %>'s Ideas</h6>
-  <% @ideas.each do |idea| %>
-    <%link_to idea.name, user_idea_path(@user, idea) %>
-  <% end %>
+  <h3><%= @user.name %>'s Ideas</h3>
+  <div class="container-fluid">
+    <div class="row">
+      <% @user.ideas.each do |idea| %>
+        <div class="col-md-2"
+        <p><%= link_to idea.name, user_idea_path(@user, idea) %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
+<div class="form-holder">
 <h3>Create a New Idea</h3>
-<%= form_for [@user, @idea] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<%= form_for [@user, @idea], class: "form-group" do |f| %>
+  <div class="form-inline">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+  <div class="form-inline">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
 
-  <%= f.label :resources %>
-  <%= f.text_area :resources %>
-  <%= f.collection_select :category_id, @categories, :id, :name, include_blank: true %>
+  <div class="form-inline">
+    <%= f.label :resources %>
+    <%= f.text_area :resources %>
+  </div>
 
-  <%= f.submit "Create New Idea" %>
+  <div class="form-inline">
+    <%= f.label "Category" %>
+    <%= f.collection_select :category_id, @categories, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="form-inline">
+    <%= f.submit "Create New Idea", class: "btn btn-default" %>
+  </div>
+
+  <% if @images %>
+    <div class="container-fluid">
+      <%= f.label "Select Images" %>
+      <div class="row">
+        <% @images.each do |image| %>
+        <div class="col-md-3">
+          <%= check_box_tag(:image_id, image.id, false, name: "idea[image_ids][]", id: "image-#{image.id}", include_blank: true) %>
+          <%= link_to image_tag(image.url, class: "img-thumbnail item-grid"), image_path(image) %>
+        </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
+
+  <% end %>
+</div>

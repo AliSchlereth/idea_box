@@ -1,1 +1,6 @@
-<h1> <%= @category.name %> </h1>
+<div class="info-details">
+  <h1> <%= @category.name %> </h1>
+  <% @ideas.each do |idea| %>
+    <%= link_to idea.name, user_idea_path(@user, idea) %>
+    <% end %>
+</div>

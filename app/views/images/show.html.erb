@@ -1,1 +1,10 @@
-<h1> <%= @image.url %></h1>
+<div class="image">
+  <%= image_tag(@image.url, class:"img-thumbnail item-grid") %>
+</div>
+
+<div class="info-details">
+  <h4>Image Ideas</h4>
+  <% @image.ideas.each do |idea|  %>
+    <li><%= link_to idea.name, user_idea_path(@user, idea) %></li>
+  <% end  %>
+</div>
