@@ -10,6 +10,7 @@ before_action :logged_in?, except: [:new, :create]
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Successfully created new account!"
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       render :new
@@ -31,7 +32,6 @@ before_action :logged_in?, except: [:new, :create]
       render file: '/public/404'
     end
     @user = current_user
-    # @user = User.find(params[:id])
   end
 
   def update

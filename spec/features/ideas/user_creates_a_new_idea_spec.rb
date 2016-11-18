@@ -4,6 +4,7 @@ describe "User creates a new idea" do
   scenario "they enter a new idea" do
     user = create(:user)
     category = create(:category)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_path(user)
     fill_in "idea[name]", with: "New Idea Name"

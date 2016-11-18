@@ -5,6 +5,7 @@ describe "User attaches image to an idea" do
     user = create(:user)
     category = create(:category)
     image1, image2 = create_list(:image, 2)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_path(user)
     fill_in "idea[name]", with: "New Idea Name"
@@ -15,6 +16,6 @@ describe "User attaches image to an idea" do
     click_on "Create New Idea"
 
     expect(page).to have_content "New Idea Name"
-    expect(page).to have_content image1.url
+    expect(page).to have_css "img[src*='#{image1.url}']" 
   end
 end

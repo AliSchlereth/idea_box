@@ -12,6 +12,8 @@ describe "User sees all categories" do
 
   scenario "they click a category link" do
     cat = create(:category)
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit categories_path
     click_on "#{cat.name}"
