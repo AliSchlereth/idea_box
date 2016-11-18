@@ -24,6 +24,7 @@ describe "User creates new account" do
     fill_in "user[password_confirmation]", with: "password"
     click_on "Create User"
 
-    expect(page).to have_content "Successfully created new account!" 
+    expect(page).to have_content "Successfully created new account!"
+    expect(current_path).to eq user_path(User.last)
   end
 end
