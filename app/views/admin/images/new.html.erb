@@ -1,6 +1,6 @@
 <div class="form-holder">
   <h1>Link a new Image!</h1>
-
+  <h4><%= link_to "Back to All Images", admin_images_path %></h4>
   <%= form_for [:admin, @image] do |f| %>
     <%= f.label :url %>
     <%= f.text_field :url %>
