@@ -10,6 +10,6 @@ describe "Admin creates a new image" do
     fill_in "image[url]", with: "http://thing.com"
     click_on "Link Image"
 
-    expect(page).to have_content "http://thing.com"
+    expect(page).to have_css("img[src*='http://thing.com']")
   end
 end

@@ -4,7 +4,13 @@
 
 <div class="info-details">
   <h4>Image Ideas</h4>
-  <% @image.ideas.each do |idea|  %>
-    <li><%= link_to idea.name, user_idea_path(@user, idea) %></li>
-  <% end  %>
+  <div class="container-fluid">
+    <div class="row">
+      <% @image.ideas.each do |idea|  %>
+        <div class="col-md-2">
+          <%= link_to idea.name, user_idea_path(@user, idea) %>
+        </div>
+      <% end  %>
+    </div>
+  </div>
 </div>
