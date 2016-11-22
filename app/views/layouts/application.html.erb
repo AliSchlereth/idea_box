@@ -11,9 +11,9 @@
   <%= render partial: "layouts/navbar" %>
 
   <body class="container-fluid">
-    <% flash.each do |key, value| %>
-      <div class=flash_<%= key %>>
-        <%= value %>
+    <% flash.each do |type, message| %>
+      <div class=flash_<%= type %>>
+        <%= content_tag :div, sanitize(message), class: "alert alert-#{type}" %>
       </div>
       <% end  %>
         <%= yield %>
