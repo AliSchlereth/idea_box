@@ -32,7 +32,7 @@ describe "Admin updates a category" do
 
       visit edit_admin_category_path(@cat)
       fill_in "category[name]", with: "NewName"
-      click_on "Update #{@cat.name}"
+      click_on "Update Category"
 
       expect(page).to have_content "NewName"
     end
