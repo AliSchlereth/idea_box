@@ -1,5 +1,6 @@
 <div class="image">
-  <%= image_tag(@image.url, class:"img-thumbnail item-grid") %>
+
+  <%= link_to image_tag(@image.url, class:"img-thumbnail item-grid"), @image.url %>
 </div>
 
 <div class="info-details">
