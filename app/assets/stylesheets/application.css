@@ -33,6 +33,13 @@
 
  .login-form {
    margin-top: 5em;
+   margin-left: 5em;
+   background:rgba(192,192,192,0.3);
+   width: 20em;
+   border-radius: 10px;
+ }
+ .login-form a {
+   color: black;
  }
 
  a {
