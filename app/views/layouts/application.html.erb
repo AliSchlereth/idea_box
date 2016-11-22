@@ -8,33 +8,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <nav class="col-md-12 navbar navbar-default navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <%= link_to "Diversify Images", '/', class:"navbar-brand" %>
-      </div>
-      <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
-        <li><%= link_to "Ideas", user_ideas_path(current_user)%></li>
-        <% if current_admin? %>
-          <li><%= link_to "Categories", admin_categories_path %></li>
-          <li><%= link_to "Images", admin_images_path %></li>
-        <% else %>
-          <li><%= link_to "Categories", categories_path%></li>
-          <li><%= link_to "Images", images_path %></li>
-        <% end  %>
-        <li><%= link_to "Log Out", logout_path, method: "delete" %><li>
-          <% else %>
-          <p><%= link_to "Login", login_path %></p>
-          <% end %>
-      </ul>
-    </div>
-  </nav>
+  <%= render partial: "layouts/navbar" %>
 
   <body class="container-fluid">
-    <% flash.each do |key, value| %>
-      <div class=flash_<%= key %>>
-        <%= value %>
+    <% flash.each do |type, message| %>
+      <div class=flash_<%= type %>>
+        <%= content_tag :div, sanitize(message), class: "alert alert-#{type}" %>
       </div>
       <% end  %>
         <%= yield %>
