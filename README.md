@@ -1,24 +1,56 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Diversify Images/Idea Box
 
-Things you may want to cover:
+Diversify Images is a tool for anyone who wants to use a Diverse Image for their project/idea.  
+Users can search images by category such as work, family, play, women, men, etc.
+Images can be assigned to individual projects and units to come back to later.  
 
-* Ruby version
+# How to install
 
-* System dependencies
+### First: 
+Pick your favorite directory, then:
 
-* Configuration
+`git clone https://github.com/AliSchlereth/idea_box.git`
 
-* Database creation
+`cd idea_box`
 
-* Database initialization
+### Second: 
+Run `bundle`. You'll need to be using Ruby 2.3.0. If you don't have that, 
+and you have rvm installed, you can run:
 
-* How to run the test suite
+`rvm install ruby-2.3.0` ... to get 2.3.0. 
 
-* Services (job queues, cache servers, search engines, etc.)
+The Gemfile should automatically switch rubies for you when you open Rales Engine
 
-* Deployment instructions
+but if not, you can do `rvm use 2.3.0`.
 
-* ...
+### Third:
+Now, you'll need to make sure your PostgreSQL database is running. If you've got
+
+a small elephant at the top of your screen: great. If not, spin up your PostgreSQL app.
+
+(If you don't have the app, go [here](http://postgresapp.com/) and follow the install instructions.)
+
+### Fourth:
+Next: run the following command in your terminal:
+
+`rake db:create db:migrate db:test:prepare`
+
+### Fifth: 
+
+Run the test suite:  
+
+Go ahead and run `rspec` - make sure all the tests pass.  
+If not, you might be missing a gem or maybe you should go back and run
+
+`rake db:test:prepare`. 
+
+
+## Technical details:
+
+A Rails app built with a PostgreSQL database. Tests written
+in rspec-rails, with dummy items coming from factory girl. Coverage provided by 
+simplecov.
+
+
